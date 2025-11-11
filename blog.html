@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Automated KYC & ID Verification for Secure Client Onboarding - Verify clients in seconds while staying fully compliant with regulatory requirements.">
+    <meta name="keywords" content="KYC, ID verification, client onboarding, compliance, biometric ID match, fraud detection">
+    <meta name="author" content="Somda">
+    <title>Blog - Automated KYC & ID Verification | Secure Client Onboarding</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <style>
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+        
+        body {
+            font-weight: 300;
+            background-color: #0f172a;
+            color: #e2e8f0;
+        }
+        
+        .gradient-primary {
+            background: linear-gradient(135deg, #5B4BFF 0%, #7C3AED 100%);
+        }
+        
+        .gradient-accent {
+            background: linear-gradient(135deg, #00E5A8 0%, #10b981 100%);
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease-in-out;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(91, 75, 255, 0.15);
+        }
+        
+        .btn-primary {
+            background-color: #5B4BFF;
+            color: white;
+            transition: all 0.3s ease-in-out;
+            border-radius: 50px;
+            padding: 12px 32px;
+            font-weight: 600;
+        }
+        
+        .btn-primary:hover {
+            background-color: #4c3ad9;
+            transform: scale(1.02);
+            box-shadow: 0 10px 30px rgba(91, 75, 255, 0.3);
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            color: #5B4BFF;
+            border: 2px solid #5B4BFF;
+            transition: all 0.3s ease-in-out;
+            border-radius: 50px;
+            padding: 10px 30px;
+            font-weight: 600;
+        }
+        
+        .btn-secondary:hover {
+            background-color: #5B4BFF;
+            color: white;
+            transform: scale(1.02);
+        }
+        
+        .faq-question {
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+        }
+        
+        .faq-question:hover {
+            color: #00E5A8;
+        }
+        
+        .faq-icon {
+            transition: transform 0.3s ease-in-out;
+        }
+        
+        .faq-answer {
+            transition: all 0.3s ease-in-out;
+            max-height: 500px;
+            overflow: hidden;
+        }
+        
+        .faq-answer.hidden {
+            max-height: 0;
+            opacity: 0;
+        }
+        
+        .feature-card {
+            background: linear-gradient(135deg, rgba(91, 75, 255, 0.05) 0%, rgba(0, 229, 168, 0.05) 100%);
+            border: 1px solid rgba(91, 75, 255, 0.2);
+            border-radius: 16px;
+            padding: 32px;
+            transition: all 0.3s ease-in-out;
+        }
+        
+        .feature-card:hover {
+            background: linear-gradient(135deg, rgba(91, 75, 255, 0.1) 0%, rgba(0, 229, 168, 0.1) 100%);
+            border-color: rgba(91, 75, 255, 0.4);
+            transform: scale(1.02);
+            box-shadow: 0 20px 40px rgba(91, 75, 255, 0.15);
+        }
+        
+        .testimonial-card {
+            background: linear-gradient(135deg, rgba(91, 75, 255, 0.05) 0%, rgba(0, 229, 168, 0.05) 100%);
+            border: 1px solid rgba(91, 75, 255, 0.2);
+            border-radius: 16px;
+            padding: 32px;
+            transition: all 0.3s ease-in-out;
+        }
+        
+        .testimonial-card:hover {
+            background: linear-gradient(135deg, rgba(91, 75, 255, 0.1) 0%, rgba(0, 229, 168, 0.1) 100%);
+            border-color: rgba(91, 75, 255, 0.4);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(91, 75, 255, 0.15);
+        }
+        
+        .mobile-menu {
+            transition: all 0.3s ease-in-out;
+        }
+        
+        .star {
+            color: #fbbf24;
+        }
+        
+        .section-title {
+            color: #5B4BFF;
+        }
+        
+        .accent-text {
+            color: #00E5A8;
+        }
+
+        .blog-card {
+            background: linear-gradient(135deg, rgba(91, 75, 255, 0.05) 0%, rgba(0, 229, 168, 0.05) 100%);
+            border: 1px solid rgba(91, 75, 255, 0.2);
+            border-radius: 16px;
+            padding: 32px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .blog-card:hover {
+            background: linear-gradient(135deg, rgba(91, 75, 255, 0.1) 0%, rgba(0, 229, 168, 0.1) 100%);
+            border-color: rgba(91, 75, 255, 0.4);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(91, 75, 255, 0.15);
+        }
+    </style>
+</head>
+<body class="bg-gray-950 text-gray-100">
+    <!-- Header Navigation -->
+    <header class="sticky top-0 z-50 bg-gray-950 bg-opacity-95 backdrop-blur-md border-b border-gray-800">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
+            <!-- Logo -->
+            <a href="https://servaas101.github.io/automated-kyc-id-verification-for-secure-client-onboarding-2025-11-11-3v18c" class="flex items-center space-x-2">
+                <div class="w-10 h-10 rounded-full gradient-primary flex items-center justify-center">
+                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                </div>
+                <span class="text-xl font-bold text-white" style="font-family: 'Space Grotesk';">SOMDA</span>
+            </a>
+
+            <!-- Back Link -->
+            <a href="https://servaas101.github.io/automated-kyc-id-verification-for-secure-client-onboarding-2025-11-11-3v18c" class="text-gray-300 hover:text-white transition-colors duration-300 flex items-center gap-2">
+                <i class="fas fa-arrow-left"></i>
+                <span>Back</span>
+            </a>
+        </nav>
+    </header>
+
+    <!-- Blog Hero Section -->
+    <section class="relative py-24 overflow-hidden bg-gradient-to-b from-gray-950 via-gray-900 to-gray-950">
+        <!-- Background Elements -->
+        <div class="absolute top-20 right-10 w-72 h-72 rounded-full gradient-primary opacity-10 blur-3xl"></div>
+        <div class="absolute bottom-20 left-10 w-72 h-72 gradient-accent opacity-10 blur-3xl"></div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
+                Our <span class="section-title">Blog</span>
+            </h1>
+            
+            <p class="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed font-light">
+                Insights, best practices, and industry updates on KYC compliance, identity verification, and secure client onboarding
+            </p>
+        </div>
+    </section>
+
+    <!-- Blog Purpose Section -->
+    <section class="py-16 bg-gray-900">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">
+                    Stay Informed on <span class="section-title">Compliance & Verification</span>
+                </h2>
+                <p class="text-lg text-gray-300 font-light leading-relaxed">
+                    Our blog provides comprehensive resources on KYC regulations, identity verification best practices, fraud detection strategies, and industry trends. Whether you're a compliance officer, fintech founder, or banking professional, you'll find actionable insights to strengthen your onboarding processes and maintain regulatory excellence.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Blog Post -->
+    <section class="py-24 bg-gray-950 relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-96 h-96 gradient-accent opacity-5 blur-3xl rounded-full"></div>
+        
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="mb-4">
+                <span class="inline-block px-4 py-2 bg-gradient-to-r from-purple-600 to-purple-700 rounded-full text-sm font-semibold text-white">Featured Post</span>
+            </div>
+
+            <div class="blog-card">
+                <div class="mb-6">
+                    <span class="text-gray-400 font-light text-sm">Published on November 11, 2025</span>
+                </div>
+                
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
+                    The Complete Guide to KYC Compliance in 2025: Best Practices and Regulatory Requirements
+                </h2>
+                
+                <p class="text-lg text-gray-300 font-light leading-relaxed mb-8">
+                    Know Your Customer compliance has become mandatory for financial institutions and regulated businesses worldwide. This comprehensive guide explores evolving regulatory requirements, including FATF recommendations, EU directives, and US standards. Essential KYC components include customer identification, due diligence, beneficial ownership verification, and ongoing monitoring. Organizations must adopt risk-based approaches, tailoring efforts based on customer profiles. Modern technology—digital identity verification, AI, and automation—streamlines processes while improving accuracy. Challenges include document fraud, complex ownership structures, and jurisdictional complexity. Best practices emphasize clear policies, staff training, comprehensive documentation, and continuous monitoring. Future trends include blockchain technology, digital identities, and advanced analytics for enhanced compliance excellence.
+                </p>
+
+                <div class="flex flex-col sm:flex-row gap-4 items-start sm:items-center">
+                    <a href="https://servaas101.github.io/automated-kyc-id-verification-for-secure-client-onboarding-2025-11-11-3v18c/blog/the-complete-guide-to-kyc-compliance-in-2025-best-.html" class="btn-primary">
+                        Read Full Article
+                    </a>
+                    <span class="text-gray-400 font-light">Est. reading time: 12 minutes</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Posts Grid -->
+    <section class="py-24 bg-gray-900 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">
+                    More <span class="section-title">Articles</span>
+                </h2>
+                <p class="text-xl text-gray-400 max-w-2xl mx-auto font-light">
+                    Explore our collection of in-depth articles on compliance, verification, and industry insights
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Placeholder Blog Card 1 -->
+                <div class="blog-card">
+                    <div class="mb-6">
+                        <span class="text-gray-400 font-light text-sm">Coming Soon</span>
+                    </div>
+                    
+                    <h3 class="text-2xl font-bold text-white mb-4">
+                        Biometric Verification: The Future of Identity Authentication
+                    </h3>
+                    
+                    <p class="text-gray-300 font-light leading-relaxed mb-6">
+                        Explore how biometric technology is revolutionizing identity verification and what it means for your business...
+                    </p>
+
+                    <div class="flex items-center justify-between">
+                        <span class="text-gray-400 font-light text-sm">Coming Soon</span>
+                        <button class="text-accent-text hover:text-white transition-colors duration-300 font-semibold flex items-center gap-2" disabled>
+                            Read More
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Placeholder Blog Card 2 -->
+                <div class="blog-card">
+                    <div class="mb-6">
+                        <span class="text-gray-400 font-light text-sm">Coming Soon</span>
+                    </div>
+                    
+                    <h3 class="text-2xl font-bold text-white mb-4">
+                        AML Compliance Strategies for Modern Fintech Companies
+                    </h3>
+                    
+                    <p class="text-gray-300 font-light leading-relaxed mb-6">
+                        Learn effective anti-money laundering compliance strategies tailored for fintech and digital banking platforms...
+                    </p>
+
+                    <div class="flex items-center justify-between">
+                        <span class="text-gray-400 font-light text-sm">Coming Soon</span>
+                        <button class="text-accent-text hover:text-white transition-colors duration-300 font-semibold flex items-center gap-2" disabled>
+                            Read More
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Placeholder Blog Card 3 -->
+                <div class="blog-card">
+                    <div class="mb-6">
+                        <span class="text-gray-400 font-light text-sm">Coming Soon</span>
+                    </div>
+                    
+                    <h3 class="text-2xl font-bold text-white mb-4">
+                        Document Fraud Detection: Protecting Your Business from Identity Theft
+                    </h3>
+                    
+                    <p class="text-gray-300 font-light leading-relaxed mb-6">
+                        Discover advanced techniques for identifying forged documents and preventing identity fraud in your onboarding process...
+                    </p>
+
+                    <div class="flex items-center justify-between">
+                        <span class="text-gray-400 font-light text-sm">Coming Soon</span>
+                        <button class="text-accent-text hover:text-white transition-colors duration-300 font-semibold flex items-center gap-2" disabled>
+                            Read More
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Placeholder Blog Card 4 -->
+                <div class="blog-card">
+                    <div class="mb-6">
+                        <span class="text-gray-400 font-light text-sm">Coming Soon</span>
+                    </div>
+                    
+                    <h3 class="text-2xl font-bold text-white mb-4">
+                        GDPR and Data Privacy: Navigating Global Compliance Requirements
+                    </h3>
+                    
+                    <p class="text-gray-300 font-light leading-relaxed mb-6">
+                        Understand how GDPR and international data privacy laws impact your KYC and customer onboarding processes...
+                    </p>
+
+                    <div class="flex items-center justify-between">
+                        <span class="text-gray-400 font-light text-sm">Coming Soon</span>
+                        <button class="text-accent-text hover:text-white transition-colors duration-300 font-semibold flex items-center gap-2" disabled>
+                            Read More
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="relative py-24 overflow-hidden">
+        <div class="absolute inset-0 bg-cover bg-center bg-no-repeat" style="background-image: linear-gradient(135deg, rgba(91, 75, 255, 0.2) 0%, rgba(0, 229, 168, 0.1) 100%), url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=600&fit=crop');"></div>
+        <div class="absolute inset-0 bg-gray-950 opacity-70"></div>
+
+        <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
+                Ready to Enhance Your Compliance?
+            </h2>
+            <p class="text-xl text-gray-300 mb-8 max-w-2xl mx-auto font-light">
+                Discover how Somda's automated KYC and identity verification solutions can transform your client onboarding process while maintaining regulatory excellence.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="https://servaas101.github.io/automated-kyc-id-verification-for-secure-client-onboarding-2025-11-11-3v18c" class="btn-primary text-lg">
+                    Back to Main Site
+                </a>
+                <a href="https://servaas101.github.io/automated-kyc-id-verification-for-secure-client-onboarding-2025-11-11-3v18c" class="btn-secondary text-lg">
+                    Schedule a Demo
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-950 border-t border-gray-800 py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+                <!-- Column 1: Brand -->
+                <div>
+                    <div class="flex items-center space-x-2 mb-6">
+                        <div class="w-10 h-10 rounded-full gradient-primary flex items-center justify-center">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                        </div>
+                        <span class="text-xl font-bold text-white" style="font-family: 'Space Grotesk';">SOMDA</span>
+                    </div>
+                    <p class="text-gray-400 font-light leading-relaxed">
+                        Automated KYC and identity verification for secure client onboarding across the globe.
+                    </p>
+                </div>
+
+                <!-- Column 2: Product -->
+                <div>
+                    <h4 class="text-white font-bold mb-6" style="font-family: 'Space Grotesk';">Product</h4>
+                    <ul class="space-y-3">
+                        <li><a href="https://servaas101.github.io/automated-kyc-id-verification-for-secure-client-onboarding-2025-11-11-3v18c#features" class="text-gray-400 hover:text-white transition-colors duration-300 font-light">Features</a></li>
+                        <li><a href="https://servaas101.github.io/automated-kyc-id-verification-for-secure-client-onboarding-2025-11-11-3v18c#benefits" class="text-gray-400 hover:text-white transition-colors duration-300 font-light">Benefits</a></li>
+                        <li><a href="https://servaas101.github.io/automated-kyc-id-verification-for-secure-client-onboarding-2025-11-11-3v18c#faq" class="text-gray-400 hover:text-white transition-colors duration-300 font-light">FAQ</a></li>
+                        <li><a href="https://somda.co.za/contact" class="text-gray-400 hover:text-white transition-colors duration-300 font-light">Pricing</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Company -->
+                <div>
+                    <h4 class="text-white font-bold mb-6" style="font-family: 'Space Grotesk';">Company</h4>
+                    <ul class="space-y-3">
+                        <li><a href="https://servaas101.github.io/automated-kyc-id-verification-for-secure-client-onboarding-2025-11-11-3v18c" class="text-gray-400 hover:text-white transition-colors duration-300 font-light">About Us</a></li>
+                        <li><a href="blog.html" class="text-gray-400 hover:text-white transition-colors duration-300 font-light">Blog</a></li>
+                        <li><a href="https://somda.co.za/contact" class="text-gray-400 hover:text-white transition-colors duration-300 font-light">Contact</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300 font-light">Careers</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Legal -->
+                <div>
+                    <h4 class="text-white font-bold mb-6" style="font-family: 'Space Grotesk';">Legal</h4>
+                    <ul class="space-y-3">
+                        <li><a href="privacy.html" class="text-gray-400 hover:text-white transition-colors duration-300 font-light">Privacy Policy</a></li>
+                        <li><a href="terms.html" class="text-gray-400 hover:text-white transition-colors duration-300 font-light">Terms of Service</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300 font-light">Security</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300 font-light">Compliance</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Contact Info -->
+            <div class="border-t border-gray-800 pt-12 mb-12">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="flex items-start gap-4">
+                        <i data-lucide="mail" class="w-6 h-6 text-accent-text flex-shrink-0 mt-1"></i>
+                        <div>
+                            <p class="text-gray-400 font-light text-sm">Email</p>
+                            <a href="mailto:info@somda.co.za" class="text-white hover:text-accent-text transition-colors duration-300">info@somda.co.za</a>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <i data-lucide="globe" class="w-6 h-6 text-accent-text flex-shrink-0 mt-1"></i>
+                        <div>
+                            <p class="text-gray-400 font-light text-sm">Website</p>
+                            <a href="https://somda.co.za" class="text-white hover:text-accent-text transition-colors duration-300">www.somda.co.za</a>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <i data-lucide="phone" class="w-6 h-6 text-accent-text flex-shrink-0 mt-1"></i>
+                        <div>
+                            <p class="text-gray-400 font-light text-sm">Support</p>
+                            <p class="text-white">Available 24/7</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Social Links -->
+            <div class="border-t border-gray-800 pt-12 mb-12">
+                <p class="text-gray-400 font-light text-sm mb-6">Follow Us</p>
+                <div class="flex gap-4">
+                    <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:text-white hover:bg-accent-text transition-all duration-300">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:text-white hover:bg-accent-text transition-all duration-300">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:text-white hover:bg-accent-text transition-all duration-300">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:text-white hover:bg-accent-text transition-all duration-300">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Copyright -->
+            <div class="border-t border-gray-800 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                    <p class="text-gray-400 font-light text-sm">
+                        &copy; 2025 Somda. All rights reserved. Automated KYC & ID Verification Solutions.
+                    </p>
+                    <div class="flex gap-6">
+                        <a href="privacy.html" class="text-gray-400 hover:text-white transition-colors duration-300 font-light text-sm">Privacy Policy</a>
+                        <a href="terms.html" class="text-gray-400 hover:text-white transition-colors duration-300 font-light text-sm">Terms of Service</a>
+                        <a href="blog.html" class="text-gray-400 hover:text-white transition-colors duration-300 font-light text-sm">Blog</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Initialize Lucide Icons -->
+    <script>
+        lucide.createIcons();
+    </script>
+
+    <!-- Main JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Smooth Scroll for Anchor Links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    if (href !== '#' && href.length > 1) {
+                        e.preventDefault();
+                        const target = document.querySelector(href);
+                        if (target) {
+                            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
