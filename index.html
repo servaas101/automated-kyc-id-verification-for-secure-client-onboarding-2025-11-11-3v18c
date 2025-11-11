@@ -1,0 +1,1078 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Automated KYC & ID Verification for Secure Client Onboarding - Verify clients in seconds while staying fully compliant with regulatory requirements.">
+    <meta name="keywords" content="KYC, ID verification, client onboarding, compliance, biometric ID match, fraud detection">
+    <meta name="author" content="Somda">
+    <title>Automated KYC & ID Verification | Secure Client Onboarding</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <style>
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+        
+        body {
+            font-weight: 300;
+            background-color: #0f172a;
+            color: #e2e8f0;
+        }
+        
+        .gradient-primary {
+            background: linear-gradient(135deg, #5B4BFF 0%, #7C3AED 100%);
+        }
+        
+        .gradient-accent {
+            background: linear-gradient(135deg, #00E5A8 0%, #10b981 100%);
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease-in-out;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(91, 75, 255, 0.15);
+        }
+        
+        .btn-primary {
+            background-color: #5B4BFF;
+            color: white;
+            transition: all 0.3s ease-in-out;
+            border-radius: 50px;
+            padding: 12px 32px;
+            font-weight: 600;
+        }
+        
+        .btn-primary:hover {
+            background-color: #4c3ad9;
+            transform: scale(1.02);
+            box-shadow: 0 10px 30px rgba(91, 75, 255, 0.3);
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            color: #5B4BFF;
+            border: 2px solid #5B4BFF;
+            transition: all 0.3s ease-in-out;
+            border-radius: 50px;
+            padding: 10px 30px;
+            font-weight: 600;
+        }
+        
+        .btn-secondary:hover {
+            background-color: #5B4BFF;
+            color: white;
+            transform: scale(1.02);
+        }
+        
+        .faq-question {
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+        }
+        
+        .faq-question:hover {
+            color: #00E5A8;
+        }
+        
+        .faq-icon {
+            transition: transform 0.3s ease-in-out;
+        }
+        
+        .faq-answer {
+            transition: all 0.3s ease-in-out;
+            max-height: 500px;
+            overflow: hidden;
+        }
+        
+        .faq-answer.hidden {
+            max-height: 0;
+            opacity: 0;
+        }
+        
+        .feature-card {
+            background: linear-gradient(135deg, rgba(91, 75, 255, 0.05) 0%, rgba(0, 229, 168, 0.05) 100%);
+            border: 1px solid rgba(91, 75, 255, 0.2);
+            border-radius: 16px;
+            padding: 32px;
+            transition: all 0.3s ease-in-out;
+        }
+        
+        .feature-card:hover {
+            background: linear-gradient(135deg, rgba(91, 75, 255, 0.1) 0%, rgba(0, 229, 168, 0.1) 100%);
+            border-color: rgba(91, 75, 255, 0.4);
+            transform: scale(1.02);
+            box-shadow: 0 20px 40px rgba(91, 75, 255, 0.15);
+        }
+        
+        .testimonial-card {
+            background: linear-gradient(135deg, rgba(91, 75, 255, 0.05) 0%, rgba(0, 229, 168, 0.05) 100%);
+            border: 1px solid rgba(91, 75, 255, 0.2);
+            border-radius: 16px;
+            padding: 32px;
+            transition: all 0.3s ease-in-out;
+        }
+        
+        .testimonial-card:hover {
+            background: linear-gradient(135deg, rgba(91, 75, 255, 0.1) 0%, rgba(0, 229, 168, 0.1) 100%);
+            border-color: rgba(91, 75, 255, 0.4);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(91, 75, 255, 0.15);
+        }
+        
+        .mobile-menu {
+            transition: all 0.3s ease-in-out;
+        }
+        
+        .star {
+            color: #fbbf24;
+        }
+        
+        .section-title {
+            color: #5B4BFF;
+        }
+        
+        .accent-text {
+            color: #00E5A8;
+        }
+    </style>
+</head>
+<body class="bg-gray-950 text-gray-100">
+    <!-- Header Navigation -->
+    <header class="sticky top-0 z-50 bg-gray-950 bg-opacity-95 backdrop-blur-md border-b border-gray-800">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
+            <!-- Logo -->
+            <div class="flex items-center space-x-2">
+                <div class="w-10 h-10 rounded-full gradient-primary flex items-center justify-center">
+                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                </div>
+                <span class="text-xl font-bold text-white" style="font-family: 'Space Grotesk';">SOMDA</span>
+            </div>
+
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#features" class="text-gray-300 hover:text-white transition-colors duration-300">Features</a>
+                <a href="#benefits" class="text-gray-300 hover:text-white transition-colors duration-300">Benefits</a>
+                <a href="#faq" class="text-gray-300 hover:text-white transition-colors duration-300">FAQ</a>
+                <a href="#testimonials" class="text-gray-300 hover:text-white transition-colors duration-300">Testimonials</a>
+            </div>
+
+            <!-- Desktop CTA Button -->
+            <div class="hidden md:block">
+                <a href="https://somda.co.za/contact" class="btn-primary">Get Started</a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button class="mobile-menu-button md:hidden text-white text-2xl">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <!-- Mobile Menu -->
+            <div class="mobile-menu hidden absolute top-16 left-0 right-0 bg-gray-900 border-b border-gray-800 md:hidden">
+                <div class="flex flex-col space-y-4 px-6 py-6">
+                    <a href="#features" class="text-gray-300 hover:text-white transition-colors duration-300">Features</a>
+                    <a href="#benefits" class="text-gray-300 hover:text-white transition-colors duration-300">Benefits</a>
+                    <a href="#faq" class="text-gray-300 hover:text-white transition-colors duration-300">FAQ</a>
+                    <a href="#testimonials" class="text-gray-300 hover:text-white transition-colors duration-300">Testimonials</a>
+                    <a href="https://somda.co.za/contact" class="btn-primary inline-block text-center">Get Started</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-gray-950 via-gray-900 to-gray-950">
+        <!-- Background Elements -->
+        <div class="absolute top-20 right-10 w-72 h-72 rounded-full gradient-primary opacity-10 blur-3xl"></div>
+        <div class="absolute bottom-20 left-10 w-72 h-72 gradient-accent opacity-10 blur-3xl"></div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 text-center">
+            <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
+                Automated <span class="section-title">KYC & ID Verification</span> for Secure Client Onboarding
+            </h1>
+            
+            <p class="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed font-light">
+                Verify clients in seconds — Stay fully compliant with regulatory requirements while providing a seamless onboarding experience
+            </p>
+
+            <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+                <a href="https://somda.co.za/contact" class="btn-primary text-lg">
+                    Start Verification Now
+                </a>
+                <button class="btn-secondary text-lg">
+                    Watch Demo
+                </button>
+            </div>
+
+            <!-- Hero Stats -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-2xl mx-auto mt-16">
+                <div class="text-center">
+                    <div class="text-4xl font-bold accent-text mb-2">99.9%</div>
+                    <p class="text-gray-400 font-light">Accuracy Rate</p>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl font-bold accent-text mb-2">&lt;5s</div>
+                    <p class="text-gray-400 font-light">Verification Time</p>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl font-bold accent-text mb-2">180+</div>
+                    <p class="text-gray-400 font-light">Countries Supported</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-24 bg-gray-900 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">
+                    Powerful <span class="section-title">Verification Features</span>
+                </h2>
+                <p class="text-xl text-gray-400 max-w-2xl mx-auto font-light">
+                    Industry-leading technology to streamline your KYC processes and reduce compliance risks
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Feature 1: Real-time KYC Checks -->
+                <div class="feature-card">
+                    <div class="mb-6 inline-flex items-center justify-center w-16 h-16 rounded-full gradient-primary">
+                        <i data-lucide="zap" class="w-8 h-8 text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-4">Real-time KYC Checks</h3>
+                    <p class="text-gray-300 font-light leading-relaxed mb-4">
+                        Instant verification against global databases, sanctions lists, and regulatory watchlists. Our advanced algorithms process and validate client information in real-time, providing immediate compliance confirmation without delays.
+                    </p>
+                    <ul class="space-y-2 text-gray-400 font-light">
+                        <li class="flex items-center gap-2">
+                            <i data-lucide="check" class="w-4 h-4 accent-text"></i>
+                            Global database access
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i data-lucide="check" class="w-4 h-4 accent-text"></i>
+                            Sanctions screening
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i data-lucide="check" class="w-4 h-4 accent-text"></i>
+                            PEP list verification
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Feature 2: Biometric ID Match -->
+                <div class="feature-card">
+                    <div class="mb-6 inline-flex items-center justify-center w-16 h-16 rounded-full gradient-primary">
+                        <i data-lucide="face" class="w-8 h-8 text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-4">Biometric ID Match</h3>
+                    <p class="text-gray-300 font-light leading-relaxed mb-4">
+                        Advanced facial recognition technology that matches client photos against government-issued IDs with military-grade precision. Our biometric engine uses deep learning to prevent spoofing and ensure genuine identity verification.
+                    </p>
+                    <ul class="space-y-2 text-gray-400 font-light">
+                        <li class="flex items-center gap-2">
+                            <i data-lucide="check" class="w-4 h-4 accent-text"></i>
+                            Liveness detection
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i data-lucide="check" class="w-4 h-4 accent-text"></i>
+                            AI-powered matching
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i data-lucide="check" class="w-4 h-4 accent-text"></i>
+                            Anti-spoofing technology
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Feature 3: Fraud Detection -->
+                <div class="feature-card">
+                    <div class="mb-6 inline-flex items-center justify-center w-16 h-16 rounded-full gradient-primary">
+                        <i data-lucide="shield-alert" class="w-8 h-8 text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-4">Advanced Fraud Detection</h3>
+                    <p class="text-gray-300 font-light leading-relaxed mb-4">
+                        Machine learning algorithms that identify suspicious patterns, forged documents, and identity fraud attempts. Our system continuously learns and adapts to emerging fraud techniques to keep your business protected.
+                    </p>
+                    <ul class="space-y-2 text-gray-400 font-light">
+                        <li class="flex items-center gap-2">
+                            <i data-lucide="check" class="w-4 h-4 accent-text"></i>
+                            Document validation
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i data-lucide="check" class="w-4 h-4 accent-text"></i>
+                            Anomaly detection
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i data-lucide="check" class="w-4 h-4 accent-text"></i>
+                            Real-time alerts
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section id="benefits" class="py-24 bg-gray-950 relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-96 h-96 gradient-accent opacity-5 blur-3xl rounded-full"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">
+                    Why Choose <span class="section-title">Somda</span>
+                </h2>
+                <p class="text-xl text-gray-400 max-w-2xl mx-auto font-light">
+                    Transform your client onboarding process with measurable results
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Benefit 1: Faster Onboarding -->
+                <div class="feature-card">
+                    <div class="mb-6 inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-r from-orange-500 to-red-500">
+                        <i data-lucide="rocket" class="w-8 h-8 text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-3">Faster Onboarding</h3>
+                    <p class="text-gray-300 font-light leading-relaxed">
+                        Reduce your average onboarding time from hours to minutes. Our streamlined verification process eliminates manual checks and paperwork delays, allowing clients to access services immediately while maintaining compliance standards.
+                    </p>
+                    <div class="mt-4 text-accent-text font-semibold">
+                        Average time saved: 85%
+                    </div>
+                </div>
+
+                <!-- Benefit 2: Reduced Risk -->
+                <div class="feature-card">
+                    <div class="mb-6 inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-r from-blue-500 to-cyan-500">
+                        <i data-lucide="lock" class="w-8 h-8 text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-3">Significantly Reduced Risk</h3>
+                    <p class="text-gray-300 font-light leading-relaxed">
+                        Minimize exposure to money laundering, fraud, and regulatory penalties. Our comprehensive verification system catches high-risk clients before they enter your system, protecting your business and reputation.
+                    </p>
+                    <div class="mt-4 text-accent-text font-semibold">
+                        Risk reduction: 99.2%
+                    </div>
+                </div>
+
+                <!-- Benefit 3: Regulatory Peace of Mind -->
+                <div class="feature-card">
+                    <div class="mb-6 inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-r from-green-500 to-emerald-500">
+                        <i data-lucide="shield-check" class="w-8 h-8 text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-3">Regulatory Peace of Mind</h3>
+                    <p class="text-gray-300 font-light leading-relaxed">
+                        Stay compliant with global regulations including KYC, AML, GDPR, and local requirements. Our system maintains complete audit trails and documentation for regulatory inspections and investigations.
+                    </p>
+                    <div class="mt-4 text-accent-text font-semibold">
+                        Compliance coverage: 180+ countries
+                    </div>
+                </div>
+
+                <!-- Benefit 4: Cost Efficiency -->
+                <div class="feature-card">
+                    <div class="mb-6 inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-r from-purple-500 to-pink-500">
+                        <i data-lucide="trending-down" class="w-8 h-8 text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-3">Cost Efficiency</h3>
+                    <p class="text-gray-300 font-light leading-relaxed">
+                        Eliminate manual verification staff and reduce operational overhead. Our automated system scales with your business without proportional cost increases, improving your bottom line.
+                    </p>
+                    <div class="mt-4 text-accent-text font-semibold">
+                        Cost reduction: Up to 70%
+                    </div>
+                </div>
+
+                <!-- Benefit 5: Seamless Integration -->
+                <div class="feature-card">
+                    <div class="mb-6 inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-r from-yellow-500 to-orange-500">
+                        <i data-lucide="link" class="w-8 h-8 text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-3">Seamless Integration</h3>
+                    <p class="text-gray-300 font-light leading-relaxed">
+                        Easy API integration with your existing systems. Our comprehensive documentation and dedicated support team ensure smooth deployment without disrupting your current operations.
+                    </p>
+                    <div class="mt-4 text-accent-text font-semibold">
+                        Setup time: Less than 24 hours
+                    </div>
+                </div>
+
+                <!-- Benefit 6: 24/7 Support -->
+                <div class="feature-card">
+                    <div class="mb-6 inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-r from-red-500 to-rose-500">
+                        <i data-lucide="headphones" class="w-8 h-8 text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-3">24/7 Expert Support</h3>
+                    <p class="text-gray-300 font-light leading-relaxed">
+                        Round-the-clock support from our expert team. Whether you need technical assistance, compliance guidance, or system optimization, we're always available to help your business succeed.
+                    </p>
+                    <div class="mt-4 text-accent-text font-semibold">
+                        Average response time: &lt;15 minutes
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="relative py-24 overflow-hidden">
+        <div class="absolute inset-0 bg-cover bg-center bg-no-repeat" style="background-image: linear-gradient(135deg, rgba(91, 75, 255, 0.2) 0%, rgba(0, 229, 168, 0.1) 100%), url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=600&fit=crop');"></div>
+        <div class="absolute inset-0 bg-gray-950 opacity-70"></div>
+
+        <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
+                Ready to Transform Your Onboarding Process?
+            </h2>
+            <p class="text-xl text-gray-300 mb-8 max-w-2xl mx-auto font-light">
+                Join hundreds of leading financial institutions and fintech companies that trust Somda for their KYC and identity verification needs. Start your free trial today.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="https://somda.co.za/contact" class="btn-primary text-lg">
+                    Start Free Trial
+                </a>
+                <a href="https://somda.co.za/contact" class="btn-secondary text-lg">
+                    Schedule Demo
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-24 bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">
+                    Trusted by Industry <span class="section-title">Leaders</span>
+                </h2>
+                <p class="text-xl text-gray-400 max-w-2xl mx-auto font-light">
+                    See what our clients have to say about their experience with Somda
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card">
+                    <div class="flex items-center gap-1 mb-4">
+                        <i data-lucide="star" class="w-5 h-5 star fill-current"></i>
+                        <i data-lucide="star" class="w-5 h-5 star fill-current"></i>
+                        <i data-lucide="star" class="w-5 h-5 star fill-current"></i>
+                        <i data-lucide="star" class="w-5 h-5 star fill-current"></i>
+                        <i data-lucide="star" class="w-5 h-5 star fill-current"></i>
+                    </div>
+                    <p class="text-gray-300 font-light leading-relaxed mb-6">
+                        "Somda's KYC solution has been a game-changer for our fintech platform. We've reduced our onboarding time by 80% while improving compliance accuracy. The biometric verification is incredibly fast and reliable. Our customers love the seamless experience, and our compliance team has peace of mind knowing every verification is thoroughly documented."
+                    </p>
+                    <div>
+                        <p class="font-bold text-white">Sarah Chen</p>
+                        <p class="text-gray-400 text-sm font-light">Head of Compliance, FinFlow Technologies</p>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card">
+                    <div class="flex items-center gap-1 mb-4">
+                        <i data-lucide="star" class="w-5 h-5 star fill-current"></i>
+                        <i data-lucide="star" class="w-5 h-5 star fill-current"></i>
+                        <i data-lucide="star" class="w-5 h-5 star fill-current"></i>
+                        <i data-lucide="star" class="w-5 h-5 star fill-current"></i>
+                        <i data-lucide="star" class="w-5 h-5 star fill-current"></i>
+                    </div>
+                    <p class="text-gray-300 font-light leading-relaxed mb-6">
+                        "The implementation was smooth and straightforward. Within 24 hours, we had Somda integrated into our system. The API documentation is excellent, and the support team is incredibly responsive. We've seen a dramatic decrease in fraud attempts since deploying their solution. Highly recommended for any organization serious about compliance."
+                    </p>
+                    <div>
+                        <p class="font-bold text-white">Marcus Johnson</p>
+                        <p class="text-gray-400 text-sm font-light">CTO, Digital Banking Solutions Inc.</p>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card">
+                    <div class="flex items-center gap-1 mb-4">
+                        <i data-lucide="star" class="w-5 h-5 star fill-current"></i>
+                        <i data-lucide="star" class="w-5 h-5 star fill-current"></i>
+                        <i data-lucide="star" class="w-5 h-5 star fill-current"></i>
+                        <i data-lucide="star" class="w-5 h-5 star fill-current"></i>
+                        <i data-lucide="star" class="w-5 h-5 star fill-current"></i>
+                    </div>
+                    <p class="text-gray-300 font-light leading-relaxed mb-6">
+                        "We were struggling with manual KYC processes that were slowing down our customer acquisition. Somda's automation has been transformative. Our verification accuracy improved to 99.9%, and we've cut our operational costs by 65%. The real-time sanctions screening gives us confidence that we're always compliant with global regulations."
+                    </p>
+                    <div>
+                        <p class="font-bold text-white">Elena Rodriguez</p>
+                        <p class="text-gray-400 text-sm font-light">VP Operations, Global Payments Ltd.</p>
+                    </div>
+                </div>
+
+                <!-- Testimonial 4 -->
+                <div class="testimonial-card">
+                    <div class="flex items-center gap-1 mb-4">
+                        <i data-lucide="star" class="w-5 h-5 star fill-current"></i>
+                        <i data-lucide="star" class="w-5 h-5 star fill-current"></i>
+                        <i data-lucide="star" class="w-5 h-5 star fill-current"></i>
+                        <i data-lucide="star" class="w-5 h-5 star fill-current"></i>
+                        <i data-lucide="star" class="w-5 h-5 star fill-current"></i>
+                    </div>
+                    <p class="text-gray-300 font-light leading-relaxed mb-6">
+                        "As a regulated financial institution, compliance is paramount. Somda's comprehensive approach to KYC and AML gives us the confidence to scale rapidly without compromising on regulatory requirements. Their team understands the nuances of international compliance, and the system handles edge cases better than any competitor we evaluated."
+                    </p>
+                    <div>
+                        <p class="font-bold text-white">David Thompson</p>
+                        <p class="text-gray-400 text-sm font-light">Compliance Director, Apex Investment Bank</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section class="py-24 bg-gray-950 relative overflow-hidden">
+        <div class="absolute bottom-0 right-0 w-96 h-96 gradient-primary opacity-5 blur-3xl rounded-full"></div>
+        
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">
+                    About <span class="section-title">Somda</span>
+                </h2>
+            </div>
+
+            <div class="space-y-8">
+                <p class="text-lg text-gray-300 font-light leading-relaxed">
+                    Founded in 2018, Somda emerged from a simple observation: the financial services industry was drowning in manual KYC processes that were slow, error-prone, and expensive. Our founding team of compliance experts, software engineers, and fintech veterans came together with a mission to revolutionize identity verification. Starting as a boutique consultancy, we recognized the opportunity to build technology that could solve this problem at scale. Today, Somda has evolved into a leading provider of automated KYC and identity verification solutions, serving hundreds of financial institutions, fintech companies, and regulated businesses across six continents. Our journey has been defined by a relentless commitment to combining cutting-edge technology with deep compliance expertise.
+                </p>
+
+                <p class="text-lg text-gray-300 font-light leading-relaxed">
+                    At our core, Somda is driven by the belief that compliance and customer experience shouldn't be at odds. We're committed to empowering businesses to onboard clients faster while maintaining the highest standards of regulatory compliance. Our team is composed of experts in machine learning, biometric technology, financial compliance, and customer experience design. We invest heavily in research and development to stay ahead of emerging fraud techniques and evolving regulatory requirements. We're not just building software; we're building trust. Every day, we work to ensure that our clients can confidently serve their customers while maintaining the integrity of the global financial system. Our values of transparency, innovation, and integrity guide every decision we make.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-24 bg-gray-900 relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-96 h-96 gradient-accent opacity-5 blur-3xl rounded-full"></div>
+
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">
+                    Frequently Asked <span class="section-title">Questions</span>
+                </h2>
+                <p class="text-xl text-gray-400 max-w-2xl mx-auto font-light">
+                    Find answers to common questions about Somda's KYC and identity verification services
+                </p>
+            </div>
+
+            <div class="space-y-4">
+                <!-- FAQ Item 1 -->
+                <div class="faq-item">
+                    <div class="faq-question feature-card cursor-pointer flex items-center justify-between">
+                        <h3 class="text-lg font-bold text-white">How long does the verification process take?</h3>
+                        <i data-lucide="chevron-down" class="faq-icon w-6 h-6 text-gray-400"></i>
+                    </div>
+                    <div class="faq-answer hidden mt-4 px-6 py-4 bg-gray-800 rounded-lg">
+                        <p class="text-gray-300 font-light leading-relaxed">
+                            Our verification process typically completes in less than 5 seconds for most clients. The speed depends on several factors including the quality of the submitted documents, network connectivity, and the complexity of the client's profile. For clients with complex backgrounds or multiple jurisdictions, the process may take a few minutes as our system conducts more thorough checks. We've optimized every step of our pipeline to ensure rapid verification without compromising on accuracy or compliance rigor.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div class="faq-item">
+                    <div class="faq-question feature-card cursor-pointer flex items-center justify-between">
+                        <h3 class="text-lg font-bold text-white">What documents are required for verification?</h3>
+                        <i data-lucide="chevron-down" class="faq-icon w-6 h-6 text-gray-400"></i>
+                    </div>
+                    <div class="faq-answer hidden mt-4 px-6 py-4 bg-gray-800 rounded-lg">
+                        <p class="text-gray-300 font-light leading-relaxed mb-4">
+                            The required documents depend on your specific compliance requirements and the client's jurisdiction. At minimum, we typically require:
+                        </p>
+                        <ul class="space-y-2 text-gray-300 font-light">
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="check" class="w-5 h-5 accent-text flex-shrink-0 mt-0.5"></i>
+                                <span>A valid government-issued photo ID (passport, driver's license, national ID)</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="check" class="w-5 h-5 accent-text flex-shrink-0 mt-0.5"></i>
+                                <span>Proof of address (utility bill, bank statement, or government document)</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="check" class="w-5 h-5 accent-text flex-shrink-0 mt-0.5"></i>
+                                <span>A selfie or live photo for biometric matching</span>
+                            </li>
+                        </ul>
+                        <p class="text-gray-300 font-light leading-relaxed mt-4">
+                            For higher-risk clients or enhanced due diligence requirements, additional documentation such as source of funds verification or business registration documents may be required. Our system is flexible and can be configured to match your specific compliance framework.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div class="faq-item">
+                    <div class="faq-question feature-card cursor-pointer flex items-center justify-between">
+                        <h3 class="text-lg font-bold text-white">Is Somda compliant with international regulations?</h3>
+                        <i data-lucide="chevron-down" class="faq-icon w-6 h-6 text-gray-400"></i>
+                    </div>
+                    <div class="faq-answer hidden mt-4 px-6 py-4 bg-gray-800 rounded-lg">
+                        <p class="text-gray-300 font-light leading-relaxed mb-4">
+                            Yes, Somda is designed to comply with the world's most stringent regulatory frameworks. Our platform supports compliance with:
+                        </p>
+                        <ul class="space-y-2 text-gray-300 font-light">
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="check" class="w-5 h-5 accent-text flex-shrink-0 mt-0.5"></i>
+                                <span><strong>FATF Recommendations</strong> - The Financial Action Task Force standards for AML/CFT</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="check" class="w-5 h-5 accent-text flex-shrink-0 mt-0.5"></i>
+                                <span><strong>EU GDPR & eIDAS</strong> - European data protection and digital identity regulations</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="check" class="w-5 h-5 accent-text flex-shrink-0 mt-0.5"></i>
+                                <span><strong>US FinCEN & OFAC</strong> - US sanctions and AML requirements</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="check" class="w-5 h-5 accent-text flex-shrink-0 mt-0.5"></i>
+                                <span><strong>Local Regulations</strong> - 180+ country-specific compliance requirements</span>
+                            </li>
+                        </ul>
+                        <p class="text-gray-300 font-light leading-relaxed mt-4">
+                            Our compliance team continuously monitors regulatory changes and updates our system accordingly. We maintain comprehensive documentation for audit purposes and work closely with our clients to ensure their specific regulatory requirements are met.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 4 -->
+                <div class="faq-item">
+                    <div class="faq-question feature-card cursor-pointer flex items-center justify-between">
+                        <h3 class="text-lg font-bold text-white">How do you protect customer data and privacy?</h3>
+                        <i data-lucide="chevron-down" class="faq-icon w-6 h-6 text-gray-400"></i>
+                    </div>
+                    <div class="faq-answer hidden mt-4 px-6 py-4 bg-gray-800 rounded-lg">
+                        <p class="text-gray-300 font-light leading-relaxed mb-4">
+                            Data security and privacy are paramount at Somda. We employ multiple layers of protection:
+                        </p>
+                        <ul class="space-y-2 text-gray-300 font-light">
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="check" class="w-5 h-5 accent-text flex-shrink-0 mt-0.5"></i>
+                                <span><strong>End-to-End Encryption</strong> - All data is encrypted in transit and at rest using AES-256 encryption</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="check" class="w-5 h-5 accent-text flex-shrink-0 mt-0.5"></i>
+                                <span><strong>ISO 27001 Certification</strong> - Our infrastructure meets international information security standards</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="check" class="w-5 h-5 accent-text flex-shrink-0 mt-0.5"></i>
+                                <span><strong>GDPR Compliance</strong> - We respect user privacy rights and data minimization principles</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="check" class="w-5 h-5 accent-text flex-shrink-0 mt-0.5"></i>
+                                <span><strong>Regular Audits</strong> - Third-party security audits and penetration testing</span>
+                            </li>
+                        </ul>
+                        <p class="text-gray-300 font-light leading-relaxed mt-4">
+                            Additionally, biometric data is processed securely and never stored in its raw form. We use advanced anonymization techniques and maintain strict access controls to ensure that only authorized personnel can access sensitive information.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 5 -->
+                <div class="faq-item">
+                    <div class="faq-question feature-card cursor-pointer flex items-center justify-between">
+                        <h3 class="text-lg font-bold text-white">What is the pricing model and how do we get started?</h3>
+                        <i data-lucide="chevron-down" class="faq-icon w-6 h-6 text-gray-400"></i>
+                    </div>
+                    <div class="faq-answer hidden mt-4 px-6 py-4 bg-gray-800 rounded-lg">
+                        <p class="text-gray-300 font-light leading-relaxed mb-4">
+                            Somda offers flexible pricing models designed to scale with your business:
+                        </p>
+                        <ul class="space-y-2 text-gray-300 font-light mb-4">
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="check" class="w-5 h-5 accent-text flex-shrink-0 mt-0.5"></i>
+                                <span><strong>Pay-Per-Verification</strong> - You only pay for each verification performed, with volume discounts available</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="check" class="w-5 h-5 accent-text flex-shrink-0 mt-0.5"></i>
+                                <span><strong>Enterprise Plans</strong> - Custom pricing for high-volume users with dedicated support</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i data-lucide="check" class="w-5 h-5 accent-text flex-shrink-0 mt-0.5"></i>
+                                <span><strong>Free Trial</strong> - Start with 100 free verifications to test our platform</span>
+                            </li>
+                        </ul>
+                        <p class="text-gray-300 font-light leading-relaxed">
+                            To get started, visit our contact page or email info@somda.co.za. Our onboarding team will guide you through the setup process, which typically takes less than 24 hours. We'll help you configure the system to match your specific compliance requirements and provide training for your team.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    
+    <!-- Contact Form Section - Split Layout -->
+    <section id="contact" class="py-20 bg-gray-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Get in Touch</h2>
+          <p class="text-lg text-gray-600">We're here to help and answer any questions you might have</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-12 items-start">
+          <!-- Contact Information Column -->
+          <div class="space-y-8">
+            <div>
+              <h3 class="text-2xl font-bold text-gray-900 mb-6">Contact Information</h3>
+              <div class="space-y-6">
+                <div class="flex items-start space-x-4">
+                  <div class="flex-shrink-0">
+                    <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                    </svg>
+                  </div>
+                  <div>
+                    <p class="font-semibold text-gray-900">Email</p>
+                    <a href="mailto:hello@example.com" class="text-blue-600 hover:text-blue-700">hello@example.com</a>
+                  </div>
+                </div>
+                
+                <div class="flex items-start space-x-4">
+                  <div class="flex-shrink-0">
+                    <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                    </svg>
+                  </div>
+                  <div>
+                    <p class="font-semibold text-gray-900">Phone</p>
+                    <a href="tel:+1234567890" class="text-blue-600 hover:text-blue-700">+1 (234) 567-890</a>
+                  </div>
+                </div>
+                
+                <div class="flex items-start space-x-4">
+                  <div class="flex-shrink-0">
+                    <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                    </svg>
+                  </div>
+                  <div>
+                    <p class="font-semibold text-gray-900">Address</p>
+                    <p class="text-gray-600">123 Business St, Suite 100<br>City, State 12345</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-blue-50 border border-blue-100 rounded-lg p-6">
+              <h4 class="font-semibold text-gray-900 mb-2">Business Hours</h4>
+              <p class="text-gray-600 text-sm">Monday - Friday: 9:00 AM - 6:00 PM</p>
+              <p class="text-gray-600 text-sm">Saturday: 10:00 AM - 4:00 PM</p>
+              <p class="text-gray-600 text-sm">Sunday: Closed</p>
+            </div>
+          </div>
+
+          <!-- Form Column -->
+          <div class="bg-white rounded-2xl shadow-lg p-8">
+            <form action="https://api.web3forms.com/submit" method="POST" class="space-y-5">
+              <input type="hidden" name="access_key" value="3bb39263-2490-491b-89f8-213fa513edae">
+              <input type="hidden" name="redirect" value="false">
+              <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+
+              <div>
+                <label for="name" class="block text-sm font-semibold text-gray-700 mb-2">Name *</label>
+                <input 
+                  type="text" 
+                  name="name" 
+                  id="name" 
+                  required 
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none"
+                  placeholder="Your name"
+                >
+              </div>
+
+              <div>
+                <label for="email" class="block text-sm font-semibold text-gray-700 mb-2">Email *</label>
+                <input 
+                  type="email" 
+                  name="email" 
+                  id="email" 
+                  required 
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none"
+                  placeholder="you@example.com"
+                >
+              </div>
+
+              <div>
+                <label for="message" class="block text-sm font-semibold text-gray-700 mb-2">Message *</label>
+                <textarea 
+                  name="message" 
+                  id="message" 
+                  required 
+                  rows="4" 
+                  class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none resize-none"
+                  placeholder="Your message..."
+                ></textarea>
+              </div>
+
+              <button 
+                type="submit" 
+                class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-200 shadow-md hover:shadow-lg"
+              >
+                Send Message
+              </button>
+
+              <div id="form-result" class="hidden mt-4 p-4 rounded-lg text-center font-medium"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      (function() {
+        const form = document.querySelector('form[action*="web3forms"]');
+        const resultDiv = document.getElementById('form-result');
+        
+        if (!form) return;
+        
+        form.addEventListener('submit', async function(e) {
+          e.preventDefault();
+          
+          const formData = new FormData(form);
+          const submitButton = form.querySelector('button[type="submit"]');
+          const originalButtonText = submitButton.textContent;
+          
+          submitButton.disabled = true;
+          submitButton.textContent = 'Sending...';
+          resultDiv.classList.add('hidden');
+          
+          try {
+            const response = await fetch('https://api.web3forms.com/submit', {
+              method: 'POST',
+              body: formData
+            });
+            
+            const data = await response.json();
+            
+            if (response.ok && data.success) {
+              resultDiv.className = 'block mt-4 p-4 rounded-lg text-center font-medium bg-green-50 text-green-800 border border-green-200';
+              resultDiv.textContent = 'Thank you! We\'ll be in touch soon.';
+              form.reset();
+            } else {
+              resultDiv.className = 'block mt-4 p-4 rounded-lg text-center font-medium bg-red-50 text-red-800 border border-red-200';
+              resultDiv.textContent = data.message || 'Something went wrong. Please try again.';
+            }
+          } catch (error) {
+            resultDiv.className = 'block mt-4 p-4 rounded-lg text-center font-medium bg-red-50 text-red-800 border border-red-200';
+            resultDiv.textContent = 'Network error. Please try again.';
+          } finally {
+            submitButton.disabled = false;
+            submitButton.textContent = originalButtonText;
+          }
+        });
+      })();
+    </script>
+  <footer class="bg-gray-950 border-t border-gray-800 py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+                <!-- Column 1: Brand -->
+                <div>
+                    <div class="flex items-center space-x-2 mb-6">
+                        <div class="w-10 h-10 rounded-full gradient-primary flex items-center justify-center">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                        </div>
+                        <span class="text-xl font-bold text-white" style="font-family: 'Space Grotesk';">SOMDA</span>
+                    </div>
+                    <p class="text-gray-400 font-light leading-relaxed">
+                        Automated KYC and identity verification for secure client onboarding across the globe.
+                    </p>
+                </div>
+
+                <!-- Column 2: Product -->
+                <div>
+                    <h4 class="text-white font-bold mb-6" style="font-family: 'Space Grotesk';">Product</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#features" class="text-gray-400 hover:text-white transition-colors duration-300 font-light">Features</a></li>
+                        <li><a href="#benefits" class="text-gray-400 hover:text-white transition-colors duration-300 font-light">Benefits</a></li>
+                        <li><a href="#faq" class="text-gray-400 hover:text-white transition-colors duration-300 font-light">FAQ</a></li>
+                        <li><a href="https://somda.co.za/contact" class="text-gray-400 hover:text-white transition-colors duration-300 font-light">Pricing</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Company -->
+                <div>
+                    <h4 class="text-white font-bold mb-6" style="font-family: 'Space Grotesk';">Company</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300 font-light">About Us</a></li>
+                        <li><a href="blog.html" class="text-gray-400 hover:text-white transition-colors duration-300 font-light">Blog</a></li>
+                        <li><a href="https://somda.co.za/contact" class="text-gray-400 hover:text-white transition-colors duration-300 font-light">Contact</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300 font-light">Careers</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Legal -->
+                <div>
+                    <h4 class="text-white font-bold mb-6" style="font-family: 'Space Grotesk';">Legal</h4>
+                    <ul class="space-y-3">
+                        <li><a href="privacy.html" class="text-gray-400 hover:text-white transition-colors duration-300 font-light">Privacy Policy</a></li>
+                        <li><a href="terms.html" class="text-gray-400 hover:text-white transition-colors duration-300 font-light">Terms of Service</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300 font-light">Security</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300 font-light">Compliance</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Contact Info -->
+            <div class="border-t border-gray-800 pt-12 mb-12">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="flex items-start gap-4">
+                        <i data-lucide="mail" class="w-6 h-6 text-accent-text flex-shrink-0 mt-1"></i>
+                        <div>
+                            <p class="text-gray-400 font-light text-sm">Email</p>
+                            <a href="mailto:info@somda.co.za" class="text-white hover:text-accent-text transition-colors duration-300">info@somda.co.za</a>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <i data-lucide="globe" class="w-6 h-6 text-accent-text flex-shrink-0 mt-1"></i>
+                        <div>
+                            <p class="text-gray-400 font-light text-sm">Website</p>
+                            <a href="https://somda.co.za" class="text-white hover:text-accent-text transition-colors duration-300">www.somda.co.za</a>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <i data-lucide="phone" class="w-6 h-6 text-accent-text flex-shrink-0 mt-1"></i>
+                        <div>
+                            <p class="text-gray-400 font-light text-sm">Support</p>
+                            <p class="text-white">Available 24/7</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Social Links -->
+            <div class="border-t border-gray-800 pt-12 mb-12">
+                <p class="text-gray-400 font-light text-sm mb-6">Follow Us</p>
+                <div class="flex gap-4">
+                    <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:text-white hover:bg-accent-text transition-all duration-300">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:text-white hover:bg-accent-text transition-all duration-300">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:text-white hover:bg-accent-text transition-all duration-300">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:text-white hover:bg-accent-text transition-all duration-300">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Copyright -->
+            <div class="border-t border-gray-800 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                    <p class="text-gray-400 font-light text-sm">
+                        &copy; 2025 Somda. All rights reserved. Automated KYC & ID Verification Solutions.
+                    </p>
+                    <div class="flex gap-6">
+                        <a href="privacy.html" class="text-gray-400 hover:text-white transition-colors duration-300 font-light text-sm">Privacy Policy</a>
+                        <a href="terms.html" class="text-gray-400 hover:text-white transition-colors duration-300 font-light text-sm">Terms of Service</a>
+                        <a href="blog.html" class="text-gray-400 hover:text-white transition-colors duration-300 font-light text-sm">Blog</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Initialize Lucide Icons -->
+    <script>
+        lucide.createIcons();
+    </script>
+
+    <!-- Main JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile Menu Toggle
+            const mobileMenuButton = document.querySelector('header nav .mobile-menu-button');
+            const mobileMenu = document.querySelector('header nav .mobile-menu');
+            
+            if (mobileMenuButton && mobileMenu) {
+                mobileMenuButton.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                    const icon = mobileMenuButton.querySelector('i');
+                    if (icon) {
+                        icon.classList.toggle('fa-bars');
+                        icon.classList.toggle('fa-times');
+                    }
+                });
+
+                const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+                mobileMenuLinks.forEach(link => {
+                    link.addEventListener('click', () => {
+                        mobileMenu.classList.add('hidden');
+                        const icon = mobileMenuButton.querySelector('i');
+                        if (icon) {
+                            icon.classList.remove('fa-times');
+                            icon.classList.add('fa-bars');
+                        }
+                    });
+                });
+            }
+
+            // FAQ Accordion Toggle
+            const faqItems = document.querySelectorAll('.faq-item');
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                if (question) {
+                    question.addEventListener('click', () => {
+                        const answer = item.querySelector('.faq-answer');
+                        const isOpen = !answer.classList.contains('hidden');
+                        
+                        // Close all other FAQ items
+                        faqItems.forEach(otherItem => {
+                            if (otherItem !== item) {
+                                otherItem.querySelector('.faq-answer')?.classList.add('hidden');
+                                otherItem.querySelector('.faq-icon')?.classList.remove('rotate-180');
+                            }
+                        });
+                        
+                        // Toggle current item
+                        answer?.classList.toggle('hidden');
+                        item.querySelector('.faq-icon')?.classList.toggle('rotate-180');
+                    });
+                }
+            });
+
+            // Smooth Scroll for Anchor Links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    if (href !== '#' && href.length > 1) {
+                        e.preventDefault();
+                        const target = document.querySelector(href);
+                        if (target) {
+                            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
